@@ -1,4 +1,3 @@
-# -valley_scene.py
 # --- Python Script: Enhanced Personalized Welcome Message with Mood and Goals ---
 
 # 1. Request the user's name
