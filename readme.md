@@ -57,13 +57,47 @@ AI is not just a topic here; it's a co-pilot! I'll be leveraging AI for:
 
 ## 📂 Project Structure
 
-This repository will be organized to reflect the learning path. You can expect:
+This repository is organized into clear categories for different types of projects:
 
-* `README.md`: This main overview.
-* `notebooks/`: For Jupyter notebooks or similar interactive learning files (if applicable).
-* `scripts/`: For Python or other simple code scripts developed.
-* `web/`: For basic HTML/CSS/JS examples (like `index.html`).
-* `notes/`: For markdown notes on AI concepts and tool usage.
+### 🐍 Python Scripts (`python-scripts/`)
+Simple Python applications and utilities:
+- `welcome_message.py` - Personalized greeting script with mood and goal interactions
+- `km_to_miles.py` - Unit conversion utility
+- `lucky_number.py` - Random number generator
+- `weather_decision.py` - Weather-based decision helper
+
+### ⚛️ React Projects (`react-projects/`)
+Modern React applications with advanced features:
+- `feathered-friends-game/` - Interactive bird-themed quiz game with multiple screens and components
+
+### 🌐 Web Projects (`web-projects/`)
+Pure HTML/CSS/JavaScript websites:
+- `support-site/` - Wellness support site with affirmations, breathing exercises, to-do lists, and more
+
+### 📝 Documentation
+- `README.md` - This main overview
+- `prompt Engineering- personas` - Notes on AI prompt engineering and persona development
+
+## 🚀 Getting Started
+
+### For Python Scripts:
+```bash
+cd python-scripts
+python welcome_message.py
+```
+
+### For React Projects:
+```bash
+cd react-projects/feathered-friends-game
+npm install
+npm start
+```
+
+### For Web Projects:
+```bash
+cd web-projects/support-site
+open index.html
+```
 
 ## 🙏 Contributions
 
