@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>You Matter - Sharmin's Support Site</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>You Matter</h1>
+    <p class="tagline">You are powerful. You belong. You are enough.</p>
+  </header>
+
+  <section id="affirmations">
+    <h2>Daily Affirmation</h2>
+    <p id="affirmation-text">Loading affirmation...</p>
+    <button onclick="newAffirmation()">New Affirmation</button>
+  </section>
+
+  <section id="mental-health">
+    <h2>Breathing Exercise</h2>
+    <p>Take a deep breath in for 4 seconds, hold for 7, and breathe out for 8.</p>
+  </section>
+
+  <section id="todo">
+    <h2>My To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Add a task..." />
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </section>
+
+  <section id="quotes-jokes">
+    <h2>Motivational Quotes & Jokes</h2>
+    <p id="quote-joke-text">Loading...</p>
+    <button onclick="newQuoteJoke()">Show Me Another</button>
+  </section>
+
+  <section id="madlibs">
+    <h2>Fun Mad Libs Game</h2>
+    <p>Fill in the blanks and create a fun story!</p>
+    <input type="text" id="noun" placeholder="Noun" />
+    <input type="text" id="verb" placeholder="Verb" />
+    <input type="text" id="adjective" placeholder="Adjective" />
+    <button onclick="createMadLib()">Create Story</button>
+    <p id="madlib-result"></p>
+  </section>
+
+  <section id="support">
+    <h2>Need Help?</h2>
+    <p>If you need support, please call <a href="tel:911">911</a> or contact a trusted person.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Sharmin Sultana's Support Site</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html> 
