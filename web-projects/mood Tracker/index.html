@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Bright Steps - Mood Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      color: #333;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #4b0082;
+    }
+    label, select, textarea {
+      display: block;
+      width: 100%;
+      margin: 15px 0;
+      font-size: 1.1em;
+    }
+    button {
+      background-color: #4b0082;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .result, .kindbot {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e6e6fa;
+      border-radius: 10px;
+      display: none;
+    }
+    .kindbot a {
+      color: #4b0082;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .section {
+      margin-bottom: 18px;
+    }
+    #historyList {
+      padding-left: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌟 My Bright Steps 🌟</h1>
+  <p>Check in with your mood today 💖</p>
+
+  <label for="mood">How are you feeling?</label>
+  <select id="mood">
+    <option value="">-- Select your mood --</option>
+    <option value="😊">😊 Happy</option>
+    <option value="😐">😐 Okay</option>
+    <option value="😔">😔 Sad</option>
+    <option value="😭">😭 Overwhelmed</option>
+    <option value="😡">😡 Angry</option>
+  </select>
+
+  <label for="journal">Want to say more?</label>
+  <textarea id="journal" placeholder="Type anything you'd like..."></textarea>
+
+  <button onclick="showSupport()">Submit</button>
+
+  <div class="result" id="resultBox" style="display:none;">
+    <h2>💌 Here's something for you</h2>
+    <div class="section">
+      <strong>💬 Encouragement:</strong>
+      <p id="encouragement"></p>
+    </div>
+    <div class="section">
+      <strong>🧠 Affirmation:</strong>
+      <p id="affirmation"></p>
+    </div>
+    <div class="section">
+      <strong>🛀 Self-Soothing Tip:</strong>
+      <p id="soothing"></p>
+    </div>
+    <div class="section">
+      <strong>🕊️ Motivation Quote:</strong>
+      <p id="quote"></p>
+    </div>
+    <div class="section">
+      <strong>🌱 Grounding Exercise:</strong>
+      <p id="grounding"></p>
+    </div>
+    <div class="section kindbot">
+      🤖 Need someone to talk to? <a href="https://chat.openai.com/g/g-zDtz5y0rm-listening-companion" target="_blank">Talk to KindBot</a>
+    </div>
+  </div>
+
+  <div class="section" id="historySection" style="display:none;">
+    <h2>📝 Mood History</h2>
+    <ul id="historyList" style="padding-left: 0;"></ul>
+    <button onclick="clearHistory()" style="background:#e57373; margin-top:10px;">Clear History</button>
+  </div>
+
+  <script>
+    function showSupport() {
+      const mood = document.getElementById("mood").value;
+      const journal = document.getElementById("journal").value;
+      // Generate encouragement, affirmation, soothing tip, quote, and grounding exercise
+      let encouragement = "";
+      let affirmation = "";
+      let soothing = "";
+      let quote = "";
+      let grounding = "";
+      switch (mood) {
+        case "😊":
+          encouragement = "Keep spreading your light, sunshine! 🌞";
+          affirmation = "You are a source of joy.";
+          soothing = "Celebrate your wins, no matter how small.";
+          quote = "'Happiness is not by chance, but by choice.' – Jim Rohn";
+          grounding = "Take a moment to savor this feeling. Breathe deeply.";
+          break;
+        case "😐":
+          encouragement = "You're doing okay — just breathe and be gentle with yourself.";
+          affirmation = "You are enough, just as you are.";
+          soothing = "Try a 5-minute mindful breathing exercise.";
+          quote = "'This too shall pass.'";
+          grounding = "Notice five things you can see around you.";
+          break;
+        case "😔":
+          encouragement = "It's okay to feel low. You are not alone. 💛";
+          affirmation = "Your feelings are valid.";
+          soothing = "Wrap yourself in a cozy blanket or listen to calming music.";
+          quote = "'Stars can't shine without darkness.'";
+          grounding = "Place your hand on your heart and feel your breath.";
+          break;
+        case "😭":
+          encouragement = "Sending you a big virtual hug. Take it one moment at a time. 💖";
+          affirmation = "You are resilient, even when it feels hard.";
+          soothing = "Drink a glass of water and rest your eyes for a minute.";
+          quote = "'You don't have to control your thoughts. You just have to stop letting them control you.' – Dan Millman";
+          grounding = "Name three sounds you can hear right now.";
+          break;
+        case "😡":
+          encouragement = "Your feelings matter. Deep breath. You're stronger than you feel.";
+          affirmation = "You can handle this.";
+          soothing = "Try squeezing a stress ball or taking a brisk walk.";
+          quote = "'Speak when you are angry and you will make the best speech you will ever regret.' – Ambrose Bierce";
+          grounding = "Clench your fists, then release. Notice the tension leaving.";
+          break;
+        default:
+          encouragement = "Thank you for checking in. You matter.";
+          affirmation = "You are worthy of care.";
+          soothing = "Take a deep breath and give yourself a gentle smile.";
+          quote = "'Courage doesn't always roar.' – Mary Anne Radmacher";
+          grounding = "Feel your feet on the ground. You are here.";
+      }
+      document.getElementById("encouragement").textContent = encouragement;
+      document.getElementById("affirmation").textContent = affirmation;
+      document.getElementById("soothing").textContent = soothing;
+      document.getElementById("quote").textContent = quote;
+      document.getElementById("grounding").textContent = grounding;
+      document.getElementById("resultBox").style.display = "block";
+      saveMoodHistory(mood, journal);
+      renderMoodHistory();
+    }
+
+    function saveMoodHistory(mood, journal) {
+      if (!mood) return;
+      const now = new Date();
+      const entry = {
+        mood,
+        journal,
+        date: now.toLocaleString()
+      };
+      let history = JSON.parse(localStorage.getItem('moodHistory') || '[]');
+      history.unshift(entry); // Add to start for reverse chronological
+      localStorage.setItem('moodHistory', JSON.stringify(history));
+    }
+
+    function renderMoodHistory() {
+      const historySection = document.getElementById('historySection');
+      const historyList = document.getElementById('historyList');
+      let history = JSON.parse(localStorage.getItem('moodHistory') || '[]');
+      if (history.length === 0) {
+        historySection.style.display = 'none';
+        return;
+      }
+      historySection.style.display = 'block';
+      historyList.innerHTML = '';
+      history.forEach(entry => {
+        const li = document.createElement('li');
+        li.style.listStyle = 'none';
+        li.style.marginBottom = '12px';
+        li.innerHTML = `<strong>${entry.mood}</strong> <em>(${entry.date})</em><br>${entry.journal ? entry.journal.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '<span style="color:#aaa">(No journal entry)</span>'}`;
+        historyList.appendChild(li);
+      });
+    }
+
+    function clearHistory() {
+      localStorage.removeItem('moodHistory');
+      renderMoodHistory();
+    }
+
+    // Render history on page load
+    window.onload = renderMoodHistory;
+  </script>
+
+</body>
+</html>
